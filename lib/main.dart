@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:internship_second_task/Presentation/Views/SplashScreen.dart';
+import 'package:internship_second_task/Configuration/AppRoutes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      title: 'Karyana App',
+      initialRoute: AppRoutes.splash,
+      routes: AppRoutes.routes,
     );
   }
 }
