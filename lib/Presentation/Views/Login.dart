@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:internship_second_task/Configuration/AppColors.dart';
+import 'package:internship_second_task/Configuration/AppRoutes.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomButton.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomText.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomTextField.dart';
@@ -52,7 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
             const Spacer(),
 
             MyButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.homeScreen);
+              },
               btnLabel: "Login",
               color: AppColors.backgroundColor,
               height: 55,
@@ -60,7 +63,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 10),
             CommonTextButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.signUp);
+              },
               firstText: "Don't have an account?",
               secondText: "Create Account",
             ),

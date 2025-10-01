@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:internship_second_task/Configuration/AppColors.dart';
+import 'package:internship_second_task/Configuration/AppRoutes.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomButton.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomText.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomTextField.dart';
@@ -62,7 +63,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             const SizedBox(height: 10),
             CommonTextButton(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.login);
+              },
               firstText: "Already have an account?",
               secondText: "Login",
             ),
