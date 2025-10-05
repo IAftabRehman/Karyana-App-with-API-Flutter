@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/Login.dart';
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
-
 import '../Presentation/Views/SignUpScreen.dart';
 import '../Presentation/Views/SplashScreen.dart';
 
