@@ -5,7 +5,6 @@ import 'package:internship_second_task/Presentation/Elements/CustomContainer.dar
 import 'package:internship_second_task/Presentation/Elements/CustomText.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomTextField.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
