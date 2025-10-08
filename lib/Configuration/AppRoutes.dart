@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:internship_second_task/Presentation/Views/ChooseBrand.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/Login.dart';
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
@@ -11,6 +12,7 @@ class AppRoutes {
   static const String login = '/login';
   static const String signUp = '/signUp';
   static const String homeScreen = '/homeScreen';
+  static const String chooseBrand = '/chooseBrand';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -20,19 +22,19 @@ class AppRoutes {
     homeScreen: (context) => HomeScreen(),
   };
 
-  // static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-  //   switch (settings.name) {
-  //     case AppRoutes.individualCategory:
-  //       final args = settings.arguments as Map<String, dynamic>;
-  //       return CupertinoPageRoute(
-  //         builder: (_) => IndividualCategory(
-  //           categoryName: args["name"],
-  //           categoryLink: args["link"],
-  //         ),
-  //       );
-  //
-  //     default:
-  //       return null;
-  //   }
-  // }
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case AppRoutes.chooseBrand:
+        final args = settings.arguments as Map<String, dynamic>;
+        return CupertinoPageRoute(
+          builder: (_) => ChooseBrand(
+            image: args["image"],
+            name: args["name"],
+          ),
+        );
+
+      default:
+        return null;
+    }
+  }
 }

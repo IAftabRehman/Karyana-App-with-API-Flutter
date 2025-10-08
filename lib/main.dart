@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Karyana App',
       initialRoute: AppRoutes.splash,
       routes: AppRoutes.routes,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }
