@@ -13,6 +13,7 @@ class AppRoutes {
   static const String signUp = '/signUp';
   static const String homeScreen = '/homeScreen';
   static const String chooseBrand = '/chooseBrand';
+  static const String productDetails = '/productDetails';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -32,9 +33,17 @@ class AppRoutes {
             name: args["name"],
           ),
         );
-
+      case AppRoutes.productDetails:
+        final args = settings.arguments as Map<String, dynamic>;
+        return CupertinoPageRoute(
+          builder: (_) => ChooseBrand(
+            image: args["image"],
+            name: args["name"],
+          ),
+        );
       default:
         return null;
     }
   }
+
 }
