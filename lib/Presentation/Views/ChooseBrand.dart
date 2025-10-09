@@ -16,18 +16,18 @@ class ChooseBrand extends StatefulWidget {
 }
 
 class _ChooseBrandState extends State<ChooseBrand> {
-  String showBrand = "";
 
   List<BrandModel> brandModel = [
-    BrandModel(name: "Brand", image: "assets/images/brand1.png"),
-    BrandModel(name: "Neon", image: "assets/images/brand2.png"),
-    BrandModel(name: "Brand", image: "assets/images/brand3.png"),
-    BrandModel(name: "Brand", image: "assets/images/brand4.png"),
-    BrandModel(name: "Brand", image: "assets/images/brand5.png"),
-    BrandModel(name: "Brand", image: "assets/images/brand1.png"),
-    BrandModel(name: "Brand", image: "assets/images/brand2.png"),
-    BrandModel(name: "Brand", image: "assets/images/brand3.png"),
+    BrandModel(name: "Brand", image: "assets/images/brand1.png", isClick: false),
+    BrandModel(name: "Neon", image: "assets/images/brand2.png", isClick: false),
+    BrandModel(name: "Brand", image: "assets/images/brand3.png", isClick: false),
+    BrandModel(name: "Brand", image: "assets/images/brand4.png", isClick: false),
+    BrandModel(name: "Brand", image: "assets/images/brand5.png", isClick: false),
+    BrandModel(name: "Brand", image: "assets/images/brand1.png", isClick: false),
+    BrandModel(name: "Brand", image: "assets/images/brand2.png", isClick: false),
+    BrandModel(name: "Brand", image: "assets/images/brand3.png", isClick: false),
   ];
+  String showBrand = "Brand";
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,11 @@ class _ChooseBrandState extends State<ChooseBrand> {
                           return GestureDetector(
                             onTap: () {
                               setState(() {
-                                showBrand == brandModel[index].name;
+                                for (var b in brandModel) {
+                                  b.isClick = false;
+                                }
+                                brandModel[index].isClick = true;
+                                showBrand = brandModel[index].name;
                               });
                             },
                             child: Padding(
@@ -107,7 +111,7 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                   MyContainer(
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: AppColors.secondaryBackgroundColor,
+                                      color: brandModel[index].isClick ? AppColors.orangeTypeColor.withOpacity(0.24): AppColors.secondaryBackgroundColor,
                                     ),
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -120,6 +124,7 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                   const SizedBox(height: 5),
                                   MyText(
                                     text: brandModel[index].name,
+                                    color: brandModel[index].isClick ? AppColors.orangeTypeColor: AppColors.textColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ],
