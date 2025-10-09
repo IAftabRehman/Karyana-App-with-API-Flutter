@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'CustomImageView.dart';
 
-
-/// Container Widget
+/// ✅ Universal Container Widget
 class MyContainer extends StatelessWidget {
   final Widget? child;
   final EdgeInsetsGeometry? padding;
@@ -18,17 +17,15 @@ class MyContainer extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final BoxConstraints? constraints;
   final GestureTapCallback? onTap;
+
+  // Optional padding values
   final double? paddingLeft;
   final double? paddingRight;
-  final double? paddingBottom;
   final double? paddingTop;
+  final double? paddingBottom;
 
   const MyContainer({
     super.key,
-    this.paddingLeft,
-    this.paddingRight,
-    this.paddingBottom,
-    this.paddingTop,
     this.child,
     this.padding,
     this.margin,
@@ -43,12 +40,15 @@ class MyContainer extends StatelessWidget {
     this.boxShadow,
     this.constraints,
     this.onTap,
+    this.paddingLeft,
+    this.paddingRight,
+    this.paddingTop,
+    this.paddingBottom,
   });
 
   @override
   Widget build(BuildContext context) {
-    final effectiveDecoration =
-        decoration ??
+    final effectiveDecoration = decoration ??
         BoxDecoration(
           color: color,
           borderRadius: borderRadius,
@@ -61,7 +61,13 @@ class MyContainer extends StatelessWidget {
       width: width,
       height: height,
       margin: margin,
-      padding: padding,
+      padding: padding ??
+          EdgeInsets.only(
+            left: paddingLeft ?? 0,
+            right: paddingRight ?? 0,
+            top: paddingTop ?? 0,
+            bottom: paddingBottom ?? 0,
+          ),
       alignment: alignment,
       constraints: constraints,
       decoration: effectiveDecoration,
@@ -77,7 +83,8 @@ class MyContainer extends StatelessWidget {
   }
 }
 
-/// Icon Container Widget
+/// ✅ Icon Container Widget
+/// Supports both [IconData] and [ImagePath]
 class MyIconContainer extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
@@ -91,7 +98,10 @@ class MyIconContainer extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final Border? border;
   final GestureTapCallback? onTap;
-  final String iconAsset;
+
+  // 🔹 Either of these can be used
+  final String? iconAsset; // For image assets
+  final IconData? iconData; // For material icons
 
   const MyIconContainer({
     super.key,
@@ -106,7 +116,8 @@ class MyIconContainer extends StatelessWidget {
     this.border,
     this.onTap,
     this.iconHeight,
-    required this.iconAsset,
+    this.iconAsset,
+    this.iconData,
     this.iconColor,
   });
 
@@ -122,11 +133,26 @@ class MyIconContainer extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(12),
         color: color ?? Colors.transparent,
       ),
-      child: CommonImageView(
-        imagePath: iconAsset,
+      child: _buildIcon(),
+    );
+  }
+
+  /// 🔹 Build either an Icon or Image based on what is provided
+  Widget _buildIcon() {
+    if (iconData != null) {
+      return Icon(
+        iconData,
+        size: iconHeight ?? 24,
+        color: iconColor ?? Colors.black,
+      );
+    } else if (iconAsset != null) {
+      return CommonImageView(
+        imagePath: iconAsset!,
         height: iconHeight ?? 24,
         svgColor: iconColor,
-      ),
-    );
+      );
+    } else {
+      return const SizedBox.shrink(); // Nothing if both are null
+    }
   }
 }

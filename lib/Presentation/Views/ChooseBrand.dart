@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:internship_second_task/Configuration/AppColors.dart';
+import 'package:internship_second_task/Configuration/AppRoutes.dart';
 import 'package:internship_second_task/Models/BrandModel.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomButton.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomContainer.dart';
 import 'package:internship_second_task/Presentation/Elements/CustomText.dart';
 
 class ChooseBrand extends StatefulWidget {
-  final String image;
-  final String name;
+  final String? image;
+  final String? name;
 
   const ChooseBrand({super.key, required this.image, required this.name});
 
@@ -16,18 +17,47 @@ class ChooseBrand extends StatefulWidget {
 }
 
 class _ChooseBrandState extends State<ChooseBrand> {
-
   List<BrandModel> brandModel = [
-    BrandModel(name: "Brand", image: "assets/images/brand1.png", isClick: false),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand1.png",
+      isClick: false,
+    ),
     BrandModel(name: "Neon", image: "assets/images/brand2.png", isClick: false),
-    BrandModel(name: "Brand", image: "assets/images/brand3.png", isClick: false),
-    BrandModel(name: "Brand", image: "assets/images/brand4.png", isClick: false),
-    BrandModel(name: "Brand", image: "assets/images/brand5.png", isClick: false),
-    BrandModel(name: "Brand", image: "assets/images/brand1.png", isClick: false),
-    BrandModel(name: "Brand", image: "assets/images/brand2.png", isClick: false),
-    BrandModel(name: "Brand", image: "assets/images/brand3.png", isClick: false),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand3.png",
+      isClick: false,
+    ),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand4.png",
+      isClick: false,
+    ),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand5.png",
+      isClick: false,
+    ),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand1.png",
+      isClick: false,
+    ),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand2.png",
+      isClick: false,
+    ),
+    BrandModel(
+      name: "Brand",
+      image: "assets/images/brand3.png",
+      isClick: false,
+    ),
   ];
   String showBrand = "Brand";
+  String actualPrice = "1200";
+  String discount = "1600";
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +65,7 @@ class _ChooseBrandState extends State<ChooseBrand> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.pushReplacementNamed(context, AppRoutes.homeScreen),
           icon: Icon(Icons.arrow_back, size: 30),
         ),
       ),
@@ -47,14 +77,14 @@ class _ChooseBrandState extends State<ChooseBrand> {
               Row(
                 children: [
                   Image.asset(
-                    widget.image,
+                    widget.image!,
                     height: 40,
                     width: 45,
                     fit: BoxFit.contain,
                   ),
                   const SizedBox(width: 10),
                   MyText(
-                    text: widget.name,
+                    text: widget.name!,
                     size: 22,
                     fontWeight: FontWeight.bold,
                   ),
@@ -111,7 +141,10 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                   MyContainer(
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
-                                      color: brandModel[index].isClick ? AppColors.orangeTypeColor.withOpacity(0.24): AppColors.secondaryBackgroundColor,
+                                      color: brandModel[index].isClick
+                                          ? AppColors.orangeTypeColor
+                                                .withOpacity(0.24)
+                                          : AppColors.secondaryBackgroundColor,
                                     ),
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -124,7 +157,9 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                   const SizedBox(height: 5),
                                   MyText(
                                     text: brandModel[index].name,
-                                    color: brandModel[index].isClick ? AppColors.orangeTypeColor: AppColors.textColor,
+                                    color: brandModel[index].isClick
+                                        ? AppColors.orangeTypeColor
+                                        : AppColors.textColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ],
@@ -180,7 +215,7 @@ class _ChooseBrandState extends State<ChooseBrand> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Image.asset(
-                                widget.image,
+                                widget.image!,
                                 height: 80,
                                 fit: BoxFit.contain,
                               ),
@@ -192,7 +227,10 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: Colors.white,
                                 width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 8,
+                                  vertical: 5,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -202,10 +240,12 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                     ),
                                     const Divider(),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             MyText(
                                               text: "1200 Rs",
@@ -215,17 +255,25 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                             MyText(
                                               text: "1600 Rs",
                                               size: 12,
-                                              decoration: TextDecoration.lineThrough,
+                                              decoration:
+                                                  TextDecoration.lineThrough,
                                               fontWeight: FontWeight.w500,
-                                              color: AppColors.primaryBackgroundColor,
+                                              color: AppColors
+                                                  .primaryBackgroundColor,
                                             ),
                                           ],
                                         ),
 
-                                        IconButton(onPressed: (){}, icon: Icon(Icons.favorite_outline, color: AppColors.primaryBackgroundColor))
+                                        IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.favorite_outline,
+                                            color: AppColors
+                                                .primaryBackgroundColor,
+                                          ),
+                                        ),
                                       ],
-                                    )
-
+                                    ),
                                   ],
                                 ),
                               ),
@@ -235,7 +283,17 @@ class _ChooseBrandState extends State<ChooseBrand> {
                                 margin: const EdgeInsets.symmetric(
                                   horizontal: 10,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(
+                                    context,
+                                    AppRoutes.productDetails,
+                                    arguments: {
+                                      "image": widget.image,
+                                      "name": widget.name,
+
+                                    }
+                                  );
+                                },
                                 child: MyText(
                                   text: "Buy Now",
                                   color: const Color(0xffffffff),

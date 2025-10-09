@@ -3,6 +3,7 @@ import 'package:internship_second_task/Presentation/Views/ChooseBrand.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/Login.dart';
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
+import 'package:internship_second_task/Presentation/Views/ProductDetails.dart';
 import '../Presentation/Views/SignUpScreen.dart';
 import '../Presentation/Views/SplashScreen.dart';
 
@@ -36,7 +37,7 @@ class AppRoutes {
       case AppRoutes.productDetails:
         final args = settings.arguments as Map<String, dynamic>;
         return CupertinoPageRoute(
-          builder: (_) => ChooseBrand(
+          builder: (_) => ProductDetails(
             image: args["image"],
             name: args["name"],
           ),
