@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             MyButton(
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutes.homeScreen);
+                Navigator.pushNamed(context, AppRoutes.bottomBar);
               },
               btnLabel: "Login",
               color: AppColors.backgroundColor,

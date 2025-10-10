@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:internship_second_task/Presentation/Elements/CustomBottomBar.dart';
 import 'package:internship_second_task/Presentation/Views/ChooseBrand.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/Login.dart';
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
 import 'package:internship_second_task/Presentation/Views/ProductDetails.dart';
+import 'package:internship_second_task/Presentation/Views/SavedItem.dart';
 import '../Presentation/Views/SignUpScreen.dart';
 import '../Presentation/Views/SplashScreen.dart';
 
@@ -15,6 +17,9 @@ class AppRoutes {
   static const String homeScreen = '/homeScreen';
   static const String chooseBrand = '/chooseBrand';
   static const String productDetails = '/productDetails';
+  static const String savedItem = '/savedItem';
+  static const String cartScreen = '/cartScreen';
+  static const String bottomBar = '/bottomBar';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -22,6 +27,8 @@ class AppRoutes {
     login: (context) => LoginScreen(),
     signUp: (context) => SignUpScreen(),
     homeScreen: (context) => HomeScreen(),
+    savedItem: (context) => SavedItem(),
+    bottomBar: (context) => CustomBottomBar(),
   };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -46,5 +53,4 @@ class AppRoutes {
         return null;
     }
   }
-
 }
