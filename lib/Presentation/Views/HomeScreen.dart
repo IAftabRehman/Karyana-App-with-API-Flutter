@@ -65,7 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 textFieldBorder: Border.all(width: 0),
               ),
             ),
-
             SizedBox(height: 15),
 
             GridView.builder(
