@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_bounce: ^1.1.0 # For Bouncing
   flutter_animate: ^4.5.2 # For Animation
+  flutter_svg: ^2.2.1 # For SVG Icon Past
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:internship_second_task/Presentation/Elements/CustomBottomBar.dart';
+import 'package:internship_second_task/Presentation/CommonWidgets/CustomBottomBar.dart';
 import 'package:internship_second_task/Presentation/Views/ChooseBrand.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/Login.dart';
+import 'package:internship_second_task/Presentation/Views/NotFoundScreen.dart';
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
 import 'package:internship_second_task/Presentation/Views/ProductDetails.dart';
 import 'package:internship_second_task/Presentation/Views/SavedItem.dart';
@@ -20,6 +21,7 @@ class AppRoutes {
   static const String savedItem = '/savedItem';
   static const String cartScreen = '/cartScreen';
   static const String bottomBar = '/bottomBar';
+  static const String notFound = '/notFound';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -29,6 +31,7 @@ class AppRoutes {
     homeScreen: (context) => HomeScreen(),
     savedItem: (context) => SavedItem(),
     bottomBar: (context) => CustomBottomBar(),
+    notFound: (context) => NotFoundScreen(),
   };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

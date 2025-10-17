@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Karyana App',
-      initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.bottomBar,
       routes: AppRoutes.routes,
       onGenerateRoute: AppRoutes.onGenerateRoute,
     );
