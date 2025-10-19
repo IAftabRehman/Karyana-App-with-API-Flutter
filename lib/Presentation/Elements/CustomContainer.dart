@@ -150,6 +150,7 @@ class MyIconContainer extends StatelessWidget {
         imagePath: iconAsset!,
         height: iconHeight ?? 24,
         svgColor: iconColor,
+        fit: BoxFit.contain,
       );
     } else {
       return const SizedBox.shrink(); // Nothing if both are null
