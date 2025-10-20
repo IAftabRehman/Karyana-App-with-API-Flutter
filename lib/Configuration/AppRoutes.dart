@@ -5,10 +5,12 @@ import 'package:internship_second_task/Presentation/Views/ChooseBrand.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/Login.dart';
 import 'package:internship_second_task/Presentation/Views/NotFoundScreen.dart';
+import 'package:internship_second_task/Presentation/Views/NotificationScreen.dart';
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
 import 'package:internship_second_task/Presentation/Views/PlaceOrderScreen.dart';
 import 'package:internship_second_task/Presentation/Views/ProductDetails.dart';
 import 'package:internship_second_task/Presentation/Views/SavedItem.dart';
+import '../Presentation/Views/OrdersScreen.dart';
 import '../Presentation/Views/SignUpScreen.dart';
 import '../Presentation/Views/SplashScreen.dart';
 
@@ -26,6 +28,8 @@ class AppRoutes {
   static const String notFound = '/notFound';
   static const String checkOut = '/checkOut';
   static const String placeOrder = '/placeOrder';
+  static const String notification = '/notification';
+  static const String orders = '/orders';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -38,6 +42,8 @@ class AppRoutes {
     notFound: (context) => NotFoundScreen(),
     checkOut: (context) => CheckOutScreen(),
     placeOrder: (context) => PlaceOrderScreen(),
+    notification: (context) => NotificationScreen(),
+    orders: (context) => OrdersScreen(),
   };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

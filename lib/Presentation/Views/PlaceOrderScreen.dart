@@ -22,87 +22,89 @@ class PlaceOrderScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Animate(
-              effects: const [
-                FadeEffect(duration: Duration(milliseconds: 2000)),
-                MoveEffect(curve: Curves.fastLinearToSlowEaseIn),
-              ],
-              child: Center(
-                child: Image.asset('assets/icons/delivery-truck.png'),
-              ),
-            ),
-
-            const SizedBox(height: 8),
-            MyText(
-              text: "Your Order Has Been Placed Successfully",
-              size: 20,
-              fontWeight: FontWeight.bold,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            MyText(
-              text:
-                  "Your order has been successfully placed and is on its way to being delivered. We appreciate your business and are excited to fulfill your purchase.",
-              size: 15,
-              fontWeight: FontWeight.w500,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 10),
-
-            MyContainer(
-              width: double.infinity,
-              color: AppColors.whiteRelatedColor,
-              borderRadius: BorderRadius.circular(10),
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  MyText(
-                    text: "Order Details",
-                    size: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  const Divider(),
-                  const SizedBox(height: 10),
-                  buildSizedBox("Order ID", "#KR21241"),
-                  const SizedBox(height: 10),
-                  buildSizedBox("Number of Items", "3"),
-                  const SizedBox(height: 10),
-                  buildSizedBox(
-                    "Delivery Address",
-                    "SD-21, North Nazimabad, Karachi",
-                  ),
-                  const SizedBox(height: 10),
-                  buildSizedBox("Expected Delivery", "Monday, 14 April"),
-                  const SizedBox(height: 10),
-                  const Divider(),
-                  const SizedBox(height: 10),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      MyText(
-                        text: "Total",
-                        size: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      MyText(
-                        text: "7400 Rs",
-                        size: 18,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.backgroundColor,
-                      ),
-                    ],
-                  ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Animate(
+                effects: const [
+                  FadeEffect(duration: Duration(milliseconds: 2000)),
+                  MoveEffect(curve: Curves.fastLinearToSlowEaseIn),
                 ],
+                child: Center(
+                  child: Image.asset('assets/icons/delivery-truck.png'),
+                ),
               ),
-            ),
-          ],
+        
+              const SizedBox(height: 8),
+              MyText(
+                text: "Your Order Has Been Placed Successfully",
+                size: 18,
+                fontWeight: FontWeight.bold,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 8),
+              MyText(
+                text:
+                    "Your order has been successfully placed and is on its way to being delivered. We appreciate your business and are excited to fulfill your purchase.",
+                size: 13,
+                fontWeight: FontWeight.w500,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+        
+              MyContainer(
+                width: double.infinity,
+                color: AppColors.whiteRelatedColor,
+                borderRadius: BorderRadius.circular(10),
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MyText(
+                      text: "Order Details",
+                      size: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const Divider(),
+                    const SizedBox(height: 10),
+                    buildSizedBox("Order ID", "#KR21241"),
+                    const SizedBox(height: 10),
+                    buildSizedBox("Number of Items", "3"),
+                    const SizedBox(height: 10),
+                    buildSizedBox(
+                      "Delivery Address",
+                      "SD-21, North Nazimabad, Karachi",
+                    ),
+                    const SizedBox(height: 10),
+                    buildSizedBox("Expected Delivery", "Monday, 14 April"),
+                    const SizedBox(height: 10),
+                    const Divider(),
+                    const SizedBox(height: 10),
+        
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MyText(
+                          text: "Total",
+                          size: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        MyText(
+                          text: "7400 Rs",
+                          size: 18,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.backgroundColor,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
@@ -137,15 +139,21 @@ class PlaceOrderScreen extends StatelessWidget {
     );
   }
 
-  ElevatedButton buildElevatedButton(String label, Color color, GestureTapCallback onTap) {
-    return ElevatedButton(
-      onPressed: onTap,
-      style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          backgroundColor: color,
-          minimumSize: Size(10, 50)
+  Animate buildElevatedButton(String label, Color color, GestureTapCallback onTap) {
+    return Animate(
+      effects: const [
+        FadeEffect(duration: Duration(milliseconds: 2000)),
+        MoveEffect(curve: Curves.fastLinearToSlowEaseIn),
+      ],
+      child: ElevatedButton(
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            backgroundColor: color,
+            minimumSize: Size(10, 50)
+        ),
+        child: MyText(text: label, size: 16, fontWeight: FontWeight.bold, color: AppColors.whiteRelatedColor),
       ),
-      child: MyText(text: label, size: 16, fontWeight: FontWeight.bold, color: AppColors.whiteRelatedColor),
     );
   }
 

@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:internship_second_task/Configuration/AppColors.dart';
 import 'package:internship_second_task/Presentation/Views/CartScreen.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
+import 'package:internship_second_task/Presentation/Views/OrdersScreen.dart';
 import 'package:internship_second_task/Presentation/Views/SavedItem.dart';
 
 class CustomBottomBar extends StatefulWidget {
@@ -19,7 +19,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   final List<Widget> _screens = [
     HomeScreen(),
     CartScreen(),
-    SavedItem(),
+    OrdersScreen(),
     SavedItem(),
     SavedItem(),
   ];

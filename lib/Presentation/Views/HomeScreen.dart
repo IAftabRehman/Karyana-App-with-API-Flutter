@@ -35,7 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: Image.asset('assets/icons/leadingIcon.png'),
         title: MyText(text: "Dokan", size: 30, fontFamily: 'Krona'),
         centerTitle: true,
-        actions: [Image.asset("assets/icons/notificationIcon.png")],
+        actions: [GestureDetector(
+            onTap: () => Navigator.pushNamed(context, AppRoutes.notification),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Image.asset("assets/icons/notificationIcon.png"),
+            ))],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -84,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       arguments: {
                         "image": categories[index].image,
                         "name": categories[index].name ?? "Show All",
-                      }
+                      },
                     );
                   },
                   child: Column(
@@ -148,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) => Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: AppColors.secondaryBackgroundColor
+                  color: AppColors.secondaryBackgroundColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
