@@ -54,7 +54,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               icon: SvgPicture.asset(
                 'assets/icons/home.svg',
                 height: 30,
-                color: _currentIndex == 0 ? Colors.red : Colors.grey,
+                colorFilter: ColorFilter.mode(
+                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  BlendMode.srcIn,
+                ),
               ),
               label: "",
             ),
@@ -62,7 +65,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               icon: SvgPicture.asset(
                 'assets/icons/cart.svg',
                 height: 30,
-                color: _currentIndex == 1 ? Colors.red : Colors.grey,
+                colorFilter: ColorFilter.mode(
+                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  BlendMode.srcIn,
+                ),
               ),
               label: "",
             ),
@@ -70,7 +76,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               icon: SvgPicture.asset(
                 'assets/icons/document.svg',
                 height: 30,
-                color: _currentIndex == 2 ? Colors.red : Colors.grey,
+                colorFilter: ColorFilter.mode(
+                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  BlendMode.srcIn,
+                ),
               ),
               label: "",
             ),
@@ -78,7 +87,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               icon: SvgPicture.asset(
                 'assets/icons/heart.svg',
                 height: 30,
-                color: _currentIndex == 3 ? Colors.red : Colors.grey,
+                colorFilter: ColorFilter.mode(
+                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  BlendMode.srcIn,
+                ),
               ),
               label: "",
             ),
@@ -86,7 +98,10 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
               icon: SvgPicture.asset(
                 'assets/icons/document.svg',
                 height: 30,
-                color: _currentIndex == 4 ? Colors.red : Colors.grey,
+                colorFilter: ColorFilter.mode(
+                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  BlendMode.srcIn,
+                ),
               ),
               label: "",
             ),
