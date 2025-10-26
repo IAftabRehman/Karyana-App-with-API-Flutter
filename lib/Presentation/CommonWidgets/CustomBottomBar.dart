@@ -4,6 +4,7 @@ import 'package:internship_second_task/Configuration/AppColors.dart';
 import 'package:internship_second_task/Presentation/Views/CartScreen.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
 import 'package:internship_second_task/Presentation/Views/OrdersScreen.dart';
+import 'package:internship_second_task/Presentation/Views/ProfileScreen.dart';
 import 'package:internship_second_task/Presentation/Views/SavedItem.dart';
 
 class CustomBottomBar extends StatefulWidget {
@@ -21,63 +22,76 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     CartScreen(),
     OrdersScreen(),
     SavedItem(),
-    SavedItem(),
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        backgroundColor: AppColors.whiteRelatedColor,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/home.svg',
-              height: 30,
-              color: _currentIndex == 0 ? Colors.red : Colors.grey,
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: AppColors.whiteRelatedColor,
+          border: Border(
+            top: BorderSide(
+              width: 1,
+              color: Color(0xFFE0E0E0),
             ),
-            label: "",
           ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/cart.svg',
-              height: 30,
-              color: _currentIndex == 1 ? Colors.red : Colors.grey,
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          backgroundColor: AppColors.whiteRelatedColor,
+          type: BottomNavigationBarType.fixed,
+          elevation: 0, // remove shadow if any
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/home.svg',
+                height: 30,
+                color: _currentIndex == 0 ? Colors.red : Colors.grey,
+              ),
+              label: "",
             ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/document.svg',
-              height: 30,
-              color: _currentIndex == 2 ? Colors.red : Colors.grey,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/cart.svg',
+                height: 30,
+                color: _currentIndex == 1 ? Colors.red : Colors.grey,
+              ),
+              label: "",
             ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/heart.svg',
-              height: 30,
-              color: _currentIndex == 3 ? Colors.red : Colors.grey,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/document.svg',
+                height: 30,
+                color: _currentIndex == 2 ? Colors.red : Colors.grey,
+              ),
+              label: "",
             ),
-            label: "",
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/icons/document.svg',
-              height: 30,
-              color: _currentIndex == 4 ? Colors.red : Colors.grey,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/heart.svg',
+                height: 30,
+                color: _currentIndex == 3 ? Colors.red : Colors.grey,
+              ),
+              label: "",
             ),
-            label: "",
-          ),
-        ],
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/icons/document.svg',
+                height: 30,
+                color: _currentIndex == 4 ? Colors.red : Colors.grey,
+              ),
+              label: "",
+            ),
+          ],
+        ),
       ),
     );
   }

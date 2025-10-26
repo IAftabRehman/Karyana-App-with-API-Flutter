@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:internship_second_task/Presentation/CommonWidgets/CustomBottomBar.dart';
+import 'package:internship_second_task/Presentation/Views/AccountSetting.dart';
 import 'package:internship_second_task/Presentation/Views/CheckOutScreen.dart';
 import 'package:internship_second_task/Presentation/Views/ChooseBrand.dart';
 import 'package:internship_second_task/Presentation/Views/HomeScreen.dart';
@@ -9,6 +10,7 @@ import 'package:internship_second_task/Presentation/Views/NotificationScreen.dar
 import 'package:internship_second_task/Presentation/Views/OnBoardingScreen.dart';
 import 'package:internship_second_task/Presentation/Views/PlaceOrderScreen.dart';
 import 'package:internship_second_task/Presentation/Views/ProductDetails.dart';
+import 'package:internship_second_task/Presentation/Views/ProfileScreen.dart';
 import 'package:internship_second_task/Presentation/Views/SavedItem.dart';
 import '../Presentation/Views/OrdersScreen.dart';
 import '../Presentation/Views/SignUpScreen.dart';
@@ -30,6 +32,8 @@ class AppRoutes {
   static const String placeOrder = '/placeOrder';
   static const String notification = '/notification';
   static const String orders = '/orders';
+  static const String profile = '/profile';
+  static const String accountSetting = '/accountSetting';
 
   static Map<String, WidgetBuilder> routes = {
     splash: (context) => SplashScreen(),
@@ -44,6 +48,8 @@ class AppRoutes {
     placeOrder: (context) => PlaceOrderScreen(),
     notification: (context) => NotificationScreen(),
     orders: (context) => OrdersScreen(),
+    profile: (context) => ProfileScreen(),
+    accountSetting: (context) => AccountSetting(),
   };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
