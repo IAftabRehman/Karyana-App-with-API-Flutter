@@ -81,7 +81,7 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           children: [
             buildContainer("Account Settings", () => Navigator.pushNamed(context, AppRoutes.accountSetting), null),
-            buildContainer("Terms & Conditions", (){}, null),
+            buildContainer("Terms & Conditions", () => Navigator.pushNamed(context, AppRoutes.billReceipt), null),
             buildContainer("Privacy Policy", (){}, null),
             buildContainer("Help & Support", (){}, null),
             buildContainer("Rate Our App", (){}, null),

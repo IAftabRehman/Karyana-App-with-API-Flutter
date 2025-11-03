@@ -43,7 +43,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           currentIndex: _currentIndex,
           backgroundColor: AppColors.whiteRelatedColor,
           type: BottomNavigationBarType.fixed,
-          elevation: 0, // remove shadow if any
+          elevation: 0,
+          // remove shadow if any
           onTap: (index) {
             setState(() {
               _currentIndex = index;
@@ -66,7 +67,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 'assets/icons/cart.svg',
                 height: 30,
                 colorFilter: ColorFilter.mode(
-                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  _currentIndex == 1 ? Colors.red : Colors.grey,
                   BlendMode.srcIn,
                 ),
               ),
@@ -77,7 +78,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 'assets/icons/document.svg',
                 height: 30,
                 colorFilter: ColorFilter.mode(
-                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  _currentIndex == 2 ? Colors.red : Colors.grey,
                   BlendMode.srcIn,
                 ),
               ),
@@ -88,19 +89,16 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 'assets/icons/heart.svg',
                 height: 30,
                 colorFilter: ColorFilter.mode(
-                  _currentIndex == 0 ? Colors.red : Colors.grey,
+                  _currentIndex == 3 ? Colors.red : Colors.grey,
                   BlendMode.srcIn,
                 ),
               ),
               label: "",
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/icons/document.svg',
-                height: 30,
-                colorFilter: ColorFilter.mode(
-                  _currentIndex == 0 ? Colors.red : Colors.grey,
-                  BlendMode.srcIn,
+              icon: CircleAvatar(
+                child: Image.asset(
+                  "assets/images/rice.png",
                 ),
               ),
               label: "",
