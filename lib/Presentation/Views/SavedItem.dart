@@ -37,7 +37,7 @@ class _SavedItemState extends State<SavedItem> {
 
                   // Search Field
                   Container(
-                    height: 65,
+                    height: 45,
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -52,14 +52,17 @@ class _SavedItemState extends State<SavedItem> {
                     ),
                     child: TextField(
                       decoration: InputDecoration(
-                        hintText: "Search product...",
-                        prefixIcon: const Icon(Icons.search, color: Colors.grey),
+                        hintText: "Search product",
+                        prefixIcon: const Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
                         border: InputBorder.none,
-                        contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                        ),
                       ),
-                      onChanged: (value) {
-                        print("Search query: $value");
-                      },
+                      onChanged: (value) {},
                     ),
                   ),
                 ],
@@ -69,9 +72,7 @@ class _SavedItemState extends State<SavedItem> {
         ),
       ),
 
-      body: const Center(
-        child: Text("Your saved products will appear here"),
-      ),
+      body: const Center(child: Text("Your saved products will appear here")),
     );
   }
 }
