@@ -13,11 +13,11 @@ class _SavedItemState extends State<SavedItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.whiteRelatedColor,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(130),
         child: AppBar(
-          elevation: 4,
-          backgroundColor: AppColors.orangeTypeColor,
+          backgroundColor: Colors.white,
           centerTitle: true,
           automaticallyImplyLeading: false,
           flexibleSpace: SafeArea(
@@ -31,17 +31,17 @@ class _SavedItemState extends State<SavedItem> {
                     text: "Saved Items",
                     size: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: AppColors.textColor,
                   ),
                   const SizedBox(height: 15),
 
                   // Search Field
                   Container(
-                    height: 45,
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    height: 50,
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
+                      color: AppColors.secondaryBackgroundColor,
+                      borderRadius: BorderRadius.circular(8),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
@@ -53,9 +53,14 @@ class _SavedItemState extends State<SavedItem> {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: "Search product",
+                        hintStyle: TextStyle(
+                          color: AppColors.greyTypeColor,
+                          fontWeight: FontWeight.bold,
+                        ),
                         prefixIcon: const Icon(
                           Icons.search,
-                          color: Colors.grey,
+                          size: 30,
+                          color: AppColors.greyTypeColor,
                         ),
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(
@@ -72,7 +77,6 @@ class _SavedItemState extends State<SavedItem> {
         ),
       ),
 
-      body: const Center(child: Text("Your saved products will appear here")),
     );
   }
 }
